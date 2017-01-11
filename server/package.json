@@ -1,0 +1,21 @@
+{
+  "name": "voiture-api",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LD78/voitureNodejs.git"
+  },
+  "description": "Node.js Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "cd ../client && npm run build && cd ../server && node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "json-api": "^2.15.7",
+    "mongoose": "^4.7.1",
+    "morgan": "latest"
+  }
+}

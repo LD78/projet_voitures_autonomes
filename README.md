@@ -1,3 +1,6 @@
+Guillaume Combacal
+Louis-David Jakubowicz
+
 # projet_voitures_autonomes
 
 1er version, avec app React de base...

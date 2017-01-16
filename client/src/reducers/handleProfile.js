@@ -8,11 +8,15 @@ const initialState =  {
   numFleet: 0
 };
 
+const carArray = ["firstCar"];
+
 
 export default function add(state = initialState, action) {
 
   switch (action.type) {
     case "ADD_CAR":
+      carArray.push(action.nameCar);
+      alert(carArray);
       return {
         ...state, numCar: action.numCar + 1
       };

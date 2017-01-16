@@ -20,14 +20,14 @@ class Profile extends React.Component {
   constructor() {
     super();
     this.state = {
-      numCar: 0,
+      nameCar: "",
       numFleet: 0
     };
   }
 
   addCarEvent(e) {
     e.preventDefault();
-    this.props.addCar(this.props.numCar);
+    this.props.addCar(this.props.numCar, this.state.nameCar );
   }
   delCarEvent(e) {
     e.preventDefault();
@@ -42,24 +42,35 @@ class Profile extends React.Component {
     this.props.delFleet(this.props.numFleet);
   }
 
+  handleChange(e) {
+    alert("handleChangeProfile");
+    this.setState({[e.target.name]: e.target.value});
+  }
+
   render(){
     return (
-      <div>
-        <h2> Profile </h2>
-        <div>
-          <p> You are </p>
-          {this.props.username}
-        </div>
-        <div>
-          <Button color='blue' type="submit" onClick={this.addCarEvent.bind(this)}>Add Car</Button>
-          <Button color='red' type="submit" onClick={this.delCarEvent.bind(this)}>Del Car</Button>
-        </div>
-        {this.props.numCar}
-        <div>
-          <Button color='blue' type="submit" onClick={this.addFleetEvent.bind(this)}>Add Fleet</Button>
-          <Button color='red' type="submit" onClick={this.delFleetEvent.bind(this)}>Del Fleet</Button>
-        </div>
-        {this.props.numFleet}
+      <div className="ui middle aligned center aligned grid">
+        <Form>
+          <h2> Profile </h2>
+          <div>
+            <p> You are </p>
+            {this.props.username}
+          </div>
+          <div>
+            <Button color='blue' type="submit" onClick={this.addCarEvent.bind(this)}>Create Car</Button>
+            <Form.Field>
+            <Input type="car" name="carName" value={this.state.nameCar} placeholder="Car"
+                   onChange={this.handleChange.bind(this)}/>
+            </Form.Field>
+            <Button color='red' type="submit" onClick={this.delCarEvent.bind(this)}>Del Car</Button>
+          </div>
+          {this.props.numCar}
+          <div>
+            <Button color='blue' type="submit" onClick={this.addFleetEvent.bind(this)}>Create Fleet</Button>
+            <Button color='red' type="submit" onClick={this.delFleetEvent.bind(this)}>Del Fleet</Button>
+          </div>
+          {this.props.numFleet}
+        </Form>
       </div>
     )
   }
@@ -93,10 +104,11 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 
-  addCar : (numCar) => {
+  addCar : (numCar, nameCar) => {
     dispatch({
       type: "ADD_CAR",
-      numCar
+      numCar,
+      nameCar
     })
   },
   delCar : (numCar) => {

@@ -1,3 +1,7 @@
+/**
+ * Created by Yaku on 28/12/2016.
+ */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 

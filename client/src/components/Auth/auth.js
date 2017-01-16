@@ -1,23 +1,36 @@
+/**
+ * Created by Yaku on 28/12/2016.
+ */
+
 import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
 export default function(WrappedComponent) {
-    class Auth extends React.Component {
-        componentWillMount() {
-            if (!this.props.authenticated) {
-                browserHistory.push('/login');
-            }
-        }
 
-        render() {
-            return <WrappedComponent {...this.props} />
-        }
+  class Auth extends React.Component {
+
+    componentWillMount() {
+      if (!this.props.authenticated) {
+        browserHistory.push('/login');
+      }
+    }
+    componentDidMount() {
+    }
+    componentWillUnmount() {
+    }
+    componentDidUnmount() {
     }
 
-    function mapStateToProps(state) {
-        return { authenticated: state.auth.authenticated };
+    render() {
+      return <WrappedComponent {...this.props} />
     }
 
-    return connect(mapStateToProps)(Auth);
+  }
+
+  function mapStateToProps(state) {
+    return { authenticated: state.auth.authenticated };
+  }
+
+  return connect(mapStateToProps)(Auth);
 }

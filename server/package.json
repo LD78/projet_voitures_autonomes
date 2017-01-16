@@ -8,7 +8,7 @@
   "description": "Node.js Project",
   "main": "server.js",
   "scripts": {
-    "start": "cd ../client && npm run build && cd ../server && node server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

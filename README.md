@@ -8,7 +8,8 @@ Louis-David Jakubowicz
 # install
 
 ```
-npm i
+cd client > npm install
+&& cd server > npm install
 ```
 
 
@@ -17,13 +18,14 @@ npm i
 launch server
 
 ```
-npm start
+cd server && npm start
 ```
+launch client
 
 ```
 cd client && npm start
 ```
-
+client: 
 http://127.0.0.1:8080
 
 # prod
@@ -31,7 +33,7 @@ http://127.0.0.1:8080
 ```
 npm start
 ```
-
+server: 
 http://127.0.0.1:3000
 
 You have to launch mongod in the console

@@ -1,33 +1,23 @@
 {
-  "name": "va",
+  "name": "Project_React_Front_End",
   "version": "1.0.0",
-  "description": "voitures autonomes",
+  "description": "front-end for car application",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "webpack"
+    "start": "webpack-dev-server"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LD78/va.git"
-  },
-  "author": "LD",
+
+  "author": "Guillaume Combacal",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LD78/va/issues"
-  },
-  "homepage": "https://github.com/LD78/va#readme",
+
   "dependencies": {
-    "axios": "*",
-    "flow": "*",
-    "isomorphic-fetch": "^2.2.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-redux": "*",
     "react-router": "^3.0.0",
+    "react-redux": "*",
     "redux": "*",
-    "redux-logger": "^2.7.4",
-    "redux-thunk": "^2.1.0",
+    "flow": "*",
+    "axios": "*",
     "semantic-ui-css": "^2.2.4",
     "semantic-ui-react": "^0.61.4"
   },
@@ -41,3 +31,4 @@
     "webpack-dev-server": "^1.16.2"
   }
 }
+

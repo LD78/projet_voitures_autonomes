@@ -1,4 +1,4 @@
-Guillaume Combacal et 
+Guillaume Combacal et
 Louis-David Jakubowicz
 
 # projet_voitures_autonomes

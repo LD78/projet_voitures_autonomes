@@ -18,7 +18,6 @@ const hardCodedLogin = [
 ];
 
 export default function auth(state = initialState, action) {
-
   switch (action.type) {
     case "SIGN_IN_USER":
       if (hardCodedLogin.reduce(function(a,b) {

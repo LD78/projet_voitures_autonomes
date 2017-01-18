@@ -20,7 +20,7 @@ class Profile extends React.Component {
   constructor() {
     super();
     this.state = {
-      nameCar: "",
+      nameCar: "default",
       numFleet: 0
     };
   }
@@ -44,12 +44,19 @@ class Profile extends React.Component {
 
   handleChange(e) {
     alert("handleChangeProfile");
+    alert(this.state.nameCar);
     this.setState({[e.target.name]: e.target.value});
   }
 
   render(){
+    const loginStyle = {
+      container : {
+        marginTop : "10px",
+      }
+    }
+
     return (
-      <div className="ui middle aligned center aligned grid">
+      <div className="ui middle aligned center aligned grid" style ={loginStyle.container}>
         <Form>
           <h2> Profile </h2>
           <div>
@@ -59,7 +66,8 @@ class Profile extends React.Component {
           <div>
             <Button color='blue' type="submit" onClick={this.addCarEvent.bind(this)}>Create Car</Button>
             <Form.Field>
-            <Input type="car" name="carName" value={this.state.nameCar} placeholder="Car"
+            <Input type="text" name="carName" value={this.state.nameCar}
+                   placeholder="Car"
                    onChange={this.handleChange.bind(this)}/>
             </Form.Field>
             <Button color='red' type="submit" onClick={this.delCarEvent.bind(this)}>Del Car</Button>
@@ -94,7 +102,6 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = state => ({
-
   username: state.auth.username,
   numCar: state.handleProfile.numCar,
   numFleet: state.handleProfile.numFleet
@@ -123,7 +130,7 @@ const mapDispatchToProps = dispatch => ({
       numFleet
     })
   },
-  delFleet : (numFleet) => {
+  delFleet : numFleet => {
     dispatch({
       type: "DEL_FLEET",
       numFleet

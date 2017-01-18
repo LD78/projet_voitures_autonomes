@@ -21,6 +21,7 @@ class Profile extends React.Component {
     super();
     this.state = {
       nameCar: "",
+      nameCarDel: "", //+
       numFleet: 0
     };
   }
@@ -31,7 +32,7 @@ class Profile extends React.Component {
   }
   delCarEvent(e) {
     e.preventDefault();
-    this.props.delCar(this.props.numCar);
+    this.props.delCar(this.props.numCar, this.state.nameCarDel); //, this.state.nameCarDel
   }
   addFleetEvent(e) {
     e.preventDefault();
@@ -114,7 +115,8 @@ const mapDispatchToProps = dispatch => ({
   delCar : (numCar) => {
     dispatch({
       type: "DEL_CAR",
-      numCar
+      numCar,
+      nameCarDel //+
     })
   },
   addFleet : (numFleet) => {

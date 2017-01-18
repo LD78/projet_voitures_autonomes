@@ -21,6 +21,8 @@ export default function add(state = initialState, action) {
         ...state, numCar: action.numCar + 1
       };
     case "DEL_CAR":
+      carArray.pop(); //+
+      alert(carArray); //+
       return {
         ...state, numCar: action.numCar - 1
       };

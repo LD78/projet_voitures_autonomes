@@ -14,6 +14,8 @@ const trajetSchema = new Schema({
 	departure: String,
 	arrived: String,
 
+	distanceTrajet: Number,
+
 	listCarId: [{type: ObjectId, ref: 'List of cars'}], // +
 
 	otherInfo: [{type: ObjectId, ref: 'Info'}]

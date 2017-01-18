@@ -17,6 +17,8 @@ const carSchema = new Schema({
 	disponibility: Boolean,
 	position: String,
 
+	distanceParcourue: Number, //+
+
 	trajetId: [{type: ObjectId, ref: 'Trajet'}]
     // ObjectID qui peut remplacer des informations pour l'intégrer dans postman
     // trajet oid

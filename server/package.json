@@ -5,10 +5,28 @@
     "type": "git",
     "url": "https://github.com/LD78/voitureNodejs.git"
   },
+
   "description": "Node.js Project",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "xo": {
+    " esnext ": true ,
+    " envs ": [
+      " node "
+    ],
+    " space ": 2,
+    " rules ": {
+      "max -len": [
+        " error ",
+        80,
+        2
+      ]
+    },
+    " ignores ": [
+      " Gruntflie .js"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -18,4 +36,5 @@
     "mongoose": "^4.7.1",
     "morgan": "latest"
   }
+
 }

@@ -20,7 +20,7 @@ class App extends Component {
     )
   }
 */
-/*
+
   render(){
     return (
       <div>
@@ -28,15 +28,8 @@ class App extends Component {
         {this.props.children}
       </div>
     )
-  }*/
+  }
 
-   render(){
-   return (
-     <div>
-        <Profile />
-     </div>
-    )
-   }
 }
 
 export default App;

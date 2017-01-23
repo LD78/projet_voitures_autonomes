@@ -98,8 +98,11 @@ export default class Profile extends Component {
             <Button color='green' type="submit" onClick={() => alert("trip launched !")}>Launch Trip</Button>
 
             <Form.Field>
-              <Input type="destinationCar" name="destinationCar" placeholder="Destination" onChange={this.handleChange.bind(this)}/>
-              <Input type="carTrip" name="carTrip" placeholder="Car" onChange={this.handleChange.bind(this)}/>
+              <Input type="destination" name="destination" placeholder="Destination" onChange={this.handleChange.bind(this)}/>
+              <div>
+                <Input type="carTrip" name="carTrip" placeholder="Car" onChange={this.handleChange.bind(this)}/>
+                <Input type="fleetTrip" name="fleetTrip" placeholder="Fleet" onChange={this.handleChange.bind(this)}/>
+              </div>
             </Form.Field>
           </div>
 

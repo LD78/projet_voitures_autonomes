@@ -43,6 +43,9 @@ export default class Profile extends Component {
     const loginStyle = {
       container : {
         marginTop : "10px",
+      },
+      divPart:{
+        marginTop : "10px",
       }
     }
 
@@ -55,7 +58,7 @@ export default class Profile extends Component {
 
           <h2>Manage your Action </h2>
 
-          <div>
+          <div style ={loginStyle.divPart}>
             <Button color='blue' type="submit" onClick={() => actions.addCar(this.state.carName)
             }>Create Car</Button>
 
@@ -63,11 +66,14 @@ export default class Profile extends Component {
             }>Delete Car</Button>
 
             <Form.Field>
-              <Input type="car" name="carName" placeholder="Car" onChange={this.handleChange.bind(this)}/>
+              <Input type="car" name="carName" placeholder="Car Name" onChange={this.handleChange.bind(this)}/>
             </Form.Field>
+
+            {this.props.profile.carArray}
+
           </div>
 
-          <div>
+          <div style ={loginStyle.divPart}>
             <Button color='blue' type="submit" onClick={() => actions.addFleet(this.state.fleetName)
             }>Create Fleet</Button>
 
@@ -75,7 +81,25 @@ export default class Profile extends Component {
             }>Delete Fleet</Button>
 
             <Form.Field>
-              <Input type="fleet" name="fleetName" placeholder="Fleet" onChange={this.handleChange.bind(this)}/>
+              <Input type="fleet" name="fleetName" placeholder="Fleet Name" onChange={this.handleChange.bind(this)}/>
+            </Form.Field>
+          </div>
+
+          <div style ={loginStyle.divPart}>
+            <Button color='green' type="submit" onClick={() => alert("added !")}>Add Car In Fleet</Button>
+
+            <Form.Field>
+              <Input type="carFleet" name="carFleet" placeholder="Car Name" onChange={this.handleChange.bind(this)}/>
+              <Input type="fleetCar" name="fleetCar" placeholder="Fleet Name" onChange={this.handleChange.bind(this)}/>
+            </Form.Field>
+          </div>
+
+          <div style ={loginStyle.divPart}>
+            <Button color='green' type="submit" onClick={() => alert("trip launched !")}>Launch Trip</Button>
+
+            <Form.Field>
+              <Input type="destinationCar" name="destinationCar" placeholder="Destination" onChange={this.handleChange.bind(this)}/>
+              <Input type="carTrip" name="carTrip" placeholder="Car" onChange={this.handleChange.bind(this)}/>
             </Form.Field>
           </div>
 

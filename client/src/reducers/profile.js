@@ -8,7 +8,7 @@ const initialState = {
   currentUser: "User",
   numCar: 0,
   numFleet: 0,
-  carArray: ["FirstCar"],
+  carArray: ["*FirstCar*"],
   fleetArray: ["FirstFleet"]
 };
 
@@ -17,14 +17,14 @@ export default function profile(state = initialState, action) {
 
     case types.ADD_CAR:
       alert("Reducer --> ADD_CAR " + action.name);
-      state.carArray.push(action.name);
+      state.carArray.push('*'+action.name+'*');
       alert(state.carArray);
       //state.carArray.push(action.name);
       axios.post("http://localhost:5000/api/cars", {
         "data": {
           "type": "cars",
           "attributes":{
-            "carId": 12,
+            "carId": 15,
             "fleetId": 1
           }
         }

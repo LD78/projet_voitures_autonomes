@@ -12,7 +12,7 @@ const carSchema = new Schema({
 	carId: {type: Number, unique: true}, // +
 
 	fleetName: String, // oid
-	fleetId: {type: Number, unique: true}, // +
+
 
 	disponibility: Boolean,
 	position: String,

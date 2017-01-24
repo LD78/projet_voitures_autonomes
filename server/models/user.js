@@ -12,7 +12,7 @@ const userSchema = new Schema({
 	username: String,
 
 	fleetName: String, // +
-	fleetId: {type: Number, unique: true}, // +
+
 
 	otherInfo: [{type: ObjectId, ref: 'Info'}]
     // ObjectID qui peut remplacer l'email, le username et la fleetName pour l'intégrer dans postman

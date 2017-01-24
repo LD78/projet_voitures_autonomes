@@ -36,4 +36,4 @@ npm start
 server: 
 http://127.0.0.1:3000
 
-You have to launch mongod in the console
+You have to launch mongod in your terminal before launch the application

@@ -24,8 +24,7 @@ export default function profile(state = initialState, action) {
         "data": {
           "type": "cars",
           "attributes":{
-            "carId": 15,
-            "fleetId": 1
+            "carName": action.name
           }
         }
       },

@@ -9,11 +9,11 @@ const ObjectId = Schema.Types.ObjectId;
 
 const carSchema = new Schema({
 	carId: {type: String, unique: true},
-  fleetName: String,
-	disponibility: Boolean,
+  	fleetName: String,
+	available: Boolean,
 	position: String,
-	distanceParcourue: Number,
-	trajetId: [{type: ObjectId, ref: 'Trajet'}]
+	drivenDistanceKm: Number,
+	trajetId: String
 
 	// ObjectID qui peut remplacer des informations pour l'intégrer dans postman
 });

@@ -5,19 +5,10 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
 
 const fleetSchema = new Schema({
-
-	fleetName: String, // +
-	fleetId: {type: Number, unique: true}, // +
-
-	listCarId: [{type: ObjectId, ref: 'List of cars'}],
-    // ObjectID qui peut remplacer les données diverses pour l'intégrer dans postman
-    // list car oid
-
-	listTrajetId: [{type: ObjectId, ref: 'List of trajets'}] // +
-    // trajet oid
+	fleetName: String,
+	fleetId: {type: String, unique: true}
 });
 
 module.exports = {

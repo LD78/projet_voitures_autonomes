@@ -5,21 +5,13 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
 
 const trajetSchema = new Schema({
-	trajetName: String, // +
-	trajetId: {type: Number, unique: true}, // +
-
+	trajetName: String,
+	trajetId: {type: String, unique: true},
 	departure: String,
-	arrived: String,
-
-	distanceTrajet: Number,
-
-	listCarId: [{type: ObjectId, ref: 'List of cars'}], // +
-
-	otherInfo: [{type: ObjectId, ref: 'Info'}]
-    // ObjectID qui peut remplacer les données diverses pour l'intégrer dans postman
+	arrival: String,
+	distanceTrajetKm: Number
 });
 
 module.exports = {

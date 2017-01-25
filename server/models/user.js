@@ -5,17 +5,11 @@
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
-const ObjectId = Schema.Types.ObjectId;
 
 const userSchema = new Schema({
 	email: {type: String, unique: true},
 	username: String,
-
-	fleetName: String, // +
-
-
-	otherInfo: [{type: ObjectId, ref: 'Info'}]
-    // ObjectID qui peut remplacer l'email, le username et la fleetName pour l'intégrer dans postman
+	fleetName: String
 });
 
 module.exports = {

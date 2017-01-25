@@ -9,7 +9,8 @@ const initialState = {
   numCar: 0,
   numFleet: 0,
   carArray: ["*FirstCar*"],
-  fleetArray: ["FirstFleet"]
+  fleetArray: ["FirstFleet"],
+  testDeOuf: false
 };
 
 export default function profile(state = initialState, action) {
@@ -24,7 +25,8 @@ export default function profile(state = initialState, action) {
           "data": {
             "type": "cars",
             "attributes":{
-              "carName": action.name
+              "carId": 15,
+              "fleetId": 1
             }
           }
         },
@@ -61,7 +63,7 @@ export default function profile(state = initialState, action) {
       state.fleetArray.push(action.name);
       alert(state.fleetArray);
       return {
-        ...state,
+        ...state, testDeOuf: true
       }
 
     default:

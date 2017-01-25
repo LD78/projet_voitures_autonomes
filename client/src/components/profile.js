@@ -39,7 +39,9 @@ export default class Profile extends Component {
 
     axios.get('http://localhost:5000/api/cars', {
       params: {
-        carId: 46666778
+        filter: {
+          simple: {carId: 'agx78310kikololo'}
+        }
       }
     })
       .then(function (response) {

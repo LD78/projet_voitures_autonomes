@@ -25,12 +25,6 @@ export default class Login extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  login(e) {
-    e.preventDefault();
-    //this.props.login(this.state.user, this.state.password);
-    this.actions.login(this.state.user, this.state.password)
-  }
-
 
   render() {
 
@@ -41,7 +35,7 @@ export default class Login extends Component {
       container : {
         marginTop : "10px",
       }
-    }
+    };
 
     const {login: { username }, dispatch} = this.props;
     const actions = bindActionCreators(loginActions, dispatch);

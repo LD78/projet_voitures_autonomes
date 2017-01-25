@@ -1,8 +1,7 @@
 /**
  * Created by Yaku on 18/01/2017.
  */
-/*import * as types from '../constants/login';
-
+/* import * as types from '../constants/login';
 
 const initialState = {
   username: "esme",
@@ -22,7 +21,6 @@ export default function login(state = initialState, action) {
         }
       }
 
-
     default:
       return state;
   }
@@ -34,24 +32,24 @@ export default function login(state = initialState, action) {
  */
 import * as types from '../constants/login';
 import axios from 'axios';
-import { browserHistory } from 'react-router';
+import {browserHistory} from 'react-router';
 
 const initialState = {
-  username: "esme",
-  password: "sudria",
-  authenticated: false
+	username: 'esme',
+	password: 'sudria',
+	authenticated: false
 };
 
 export default function login(state = initialState, action) {
-  switch (action.type) {
+	switch (action.type) {
 
-    case types.LOGIN:
-      alert("LOGIN");
-      return {
-        ...state, authenticated: true
-      }
+		case types.LOGIN: {
+			return {
+				...state, authenticated: true
+			};
+		}
+		default:
+			return state;
 
-    default:
-      return state;
-  }
+	}
 }

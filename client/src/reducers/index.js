@@ -7,11 +7,11 @@ import login from './login';
 import signUp from './signUp';
 
 const app = combineReducers({
-  user,
-  profile,
-  login,
-  signUp,
-  routing: routerReducer
+	user,
+	profile,
+	login,
+	signUp,
+	routing: routerReducer
 });
 
 export default app;

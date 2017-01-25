@@ -16,3 +16,10 @@ export function addFleet(name) {
   };
 }
 
+export function addUser(email) {
+    alert("Action --> addUser");
+    return {
+        type: types.ADD_USER,
+        email
+    };
+}

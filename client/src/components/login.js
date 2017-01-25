@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 @connect(state => ({
+  profile: state.profile,
   login: state.login
 }))
 
@@ -34,6 +35,9 @@ export default class Login extends Component {
 
 
   render() {
+
+    console.log("LOGIN");
+    console.log(this.props);
 
     const loginStyle = {
       container : {

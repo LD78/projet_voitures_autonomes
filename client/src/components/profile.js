@@ -7,6 +7,7 @@ import { Button, Input, Form } from 'semantic-ui-react'
 import * as profileActions from '../actions/profile';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 @connect(state => ({
   profile: state.profile,
@@ -27,6 +28,29 @@ export default class Profile extends Component {
     };
   }
 
+  data = {};
+//https://github.com/mzabriskie/axios
+  componentWillMount() {
+    /*axios.get("http://localhost:5000/api/cars").then(response => {
+      this.setState({ data: response.data.cars });
+      console.log("componentWillMount");
+      console.log(this.data);
+    })*/
+
+    axios.get('http://localhost:5000/api/cars', {
+      params: {
+        carId: 46666778
+      }
+    })
+      .then(function (response) {
+        console.log("GET");
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
   }
@@ -38,7 +62,8 @@ export default class Profile extends Component {
 
     console.log("PROFILE");
     console.log(this.props);
-    console.log(this.props.profile.utilisateur);
+    //console.log(this.props.profile.utilisateur);
+    //console.log("PROFILE TEST"+this.props.login.authenticated);
 
     const loginStyle = {
       container : {
@@ -107,6 +132,7 @@ export default class Profile extends Component {
           </div>
 
         </div>
+
       </div>
     );
 

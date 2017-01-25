@@ -1,12 +1,13 @@
 /**
  * Created by Yaku on 18/01/2017.
  */
-import * as types from '../constants/login';
-import { browserHistory } from 'react-router';
+/*import * as types from '../constants/login';
+
 
 const initialState = {
-  username: "guillaume",
-  password: "banane"
+  username: "esme",
+  password: "sudria",
+  authenticated: false
 };
 
 export default function login(state = initialState, action) {
@@ -15,14 +16,39 @@ export default function login(state = initialState, action) {
     case types.LOGIN:
       if(action.username == state.username && action.password == state.password){
         alert("Welcome " + action.username);
-        browserHistory.push('/profile')
+        browserHistory.push('/profile');
+        return {
+          ...state,authenticated: true
+        }
       }
-      /*else {
-        alert("You're not Guillaume !");
-      }*/
 
+
+    default:
+      return state;
+  }
+}
+*/
+
+/**
+ * Created by Yaku on 18/01/2017.
+ */
+import * as types from '../constants/login';
+import axios from 'axios';
+import { browserHistory } from 'react-router';
+
+const initialState = {
+  username: "esme",
+  password: "sudria",
+  authenticated: false
+};
+
+export default function login(state = initialState, action) {
+  switch (action.type) {
+
+    case types.LOGIN:
+      alert("LOGIN");
       return {
-        ...state
+        ...state, authenticated: true
       }
 
     default:

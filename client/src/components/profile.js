@@ -23,7 +23,7 @@ export default class Profile extends Component {
   constructor() {
     super();
     this.state = {
-      carName: "",
+      carId: "",
       fleetName: ""
     };
   }
@@ -84,14 +84,14 @@ export default class Profile extends Component {
           <h2>Manage your Action </h2>
 
           <div style ={loginStyle.divPart}>
-            <Button color='blue' type="submit" onClick={() => actions.addCar(this.state.carName)
+            <Button color='blue' type="submit" onClick={() => actions.addCar(this.state.carId)
             }>Create Car</Button>
 
-            <Button color='red' type="submit" onClick={() => alert("car delete:" + this.state.carName)
+            <Button color='red' type="submit" onClick={() => alert("car delete:" + this.state.carId)
             }>Delete Car</Button>
 
             <Form.Field>
-              <Input type="car" name="carName" placeholder="Car Name" onChange={this.handleChange.bind(this)}/>
+              <Input type="car" name="carId" placeholder="Number plate" onChange={this.handleChange.bind(this)}/>
             </Form.Field>
 
             {this.props.profile.carArray}
@@ -150,14 +150,14 @@ export default class Profile extends Component {
           }>Create Car</Button>
 
           <Form.Field>
-            <Input type="car" name="carName" placeholder="Car"/>
+            <Input type="car" name="carId" placeholder="Car"/>
           </Form.Field>
 
           <Button color='red' type="submit" onClick={() => alert("click profile button")
           }>Delate Car</Button>
 
           <Form.Field>
-            <Input type="car" name="carName" placeholder="Car"/>
+            <Input type="car" name="carId" placeholder="Car"/>
           </Form.Field>
 
         </div>

@@ -8,21 +8,14 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const carSchema = new Schema({
-	carName: String, // +
-	carId: {type: Number, unique: true}, // +
-
-	fleetName: String, // oid
-
-
+	carId: {type: String, unique: true},
+  fleetName: String,
 	disponibility: Boolean,
 	position: String,
-
-	distanceParcourue: Number, //+
-
+	distanceParcourue: Number,
 	trajetId: [{type: ObjectId, ref: 'Trajet'}]
-    // ObjectID qui peut remplacer des informations pour l'intégrer dans postman
-    // trajet oid
 
+	// ObjectID qui peut remplacer des informations pour l'intégrer dans postman
 });
 
 module.exports = {

@@ -17,16 +17,15 @@ export default function profile(state = initialState, action) {
   switch (action.type) {
 
     case types.ADD_CAR:
-      alert("Reducer --> ADD_CAR " + action.name);
-      state.carArray.push('*'+action.name+'*');
+      alert("Reducer --> ADD_CAR " + action.id);
+      state.carArray.push('*'+action.id+'*');
       alert(state.carArray);
-      //state.carArray.push(action.name);
+      //state.carArray.push(action.id);
       axios.post("http://localhost:5000/api/cars", {
           "data": {
             "type": "cars",
             "attributes":{
-              "carId": 15,
-              "fleetId": 1
+              "carId": action.id
             }
           }
         },
@@ -47,16 +46,6 @@ export default function profile(state = initialState, action) {
         ...state,
         //numCar: action.numCar + 1
       }
-    /*return axios({
-     url: "http://localhost:5000/api/cars",
-     timeout: 20000,
-     method: 'post',
-     data: {
-     carName: action.name,
-     carId: 123456789,
-     fleetId: 1
-     }
-     })*/
 
     case types.ADD_FLEET:
       alert("Reducer --> ADD_FLEET " + action.name);

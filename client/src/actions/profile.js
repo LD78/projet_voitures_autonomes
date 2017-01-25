@@ -23,3 +23,11 @@ export function addUser(email) {
         email
     };
 }
+
+export function addTrajet(trajetId) {
+    alert("Action --> addTrajet");
+    return {
+        type: types.ADD_TRAJET,
+        trajetId
+    };
+}

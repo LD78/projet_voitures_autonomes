@@ -25,8 +25,8 @@ module.exports = {
 	model: mongoose.model('Fleet', fleetSchema),
 	registry: {
 		urlTemplates: {
-			self: 'http://127.0.0.1:3000/api/fleets/{id}',
-			relationship: 'http://127.0.0.1:3000/api/fleets/{ownerId}/relationships/{path}'
+			self: 'http://127.0.0.1:5000/api/fleets/{id}',
+			relationship: 'http://127.0.0.1:5000/api/fleets/{ownerId}/relationships/{path}'
 		}
 	}
 };

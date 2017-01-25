@@ -26,7 +26,7 @@ launch client
 cd client && npm start
 ```
 client: 
-http://127.0.0.1:8080
+http://127.0.0.1:3000
 
 # prod
 
@@ -34,6 +34,6 @@ http://127.0.0.1:8080
 npm start
 ```
 server: 
-http://127.0.0.1:3000
+http://127.0.0.1:5000
 
 You have to launch mongod in your terminal before launch the application

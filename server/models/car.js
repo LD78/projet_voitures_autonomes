@@ -23,8 +23,8 @@ module.exports = {
 	model: mongoose.model('Car', carSchema),
 	registry: {
 		urlTemplates: {
-			self: 'http://127.0.0.1:3000/api/cars/{id}',
-			relationship: 'http://127.0.0.1:3000/api/cars/{ownerId}/relationships/{path}'
+			self: 'http://127.0.0.1:5000/api/cars/{id}',
+			relationship: 'http://127.0.0.1:5000/api/cars/{ownerId}/relationships/{path}'
 		}
 	}
 };

@@ -27,8 +27,8 @@ module.exports = {
 	model: mongoose.model('Trajet', trajetSchema),
 	registry: {
 		urlTemplates: {
-			self: 'http://127.0.0.1:3000/api/trajets/{id}',
-			relationship: 'http://127.0.0.1:3000/api/trajets/{ownerId}/relationships/{path}'
+			self: 'http://127.0.0.1:5000/api/trajets/{id}',
+			relationship: 'http://127.0.0.1:5000/api/trajets/{ownerId}/relationships/{path}'
 		}
 	}
 };

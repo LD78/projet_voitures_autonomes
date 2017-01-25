@@ -7,6 +7,7 @@ import store from './store';
 import App from './containers/App';
 import Login from './components/login';
 import Profile from './components/profile';
+import SignUp from './components/signUp';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -17,6 +18,7 @@ export default(
         <IndexRoute component={Login} />
         <Route path="profile" component={Profile} />
         <Route path="login" component={Login} />
+        <Route path="signUp" component={SignUp} />
       </Route>
     </Router>
   </Provider>

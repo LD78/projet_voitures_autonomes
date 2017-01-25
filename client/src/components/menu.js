@@ -38,6 +38,13 @@ export default class AppMenu extends Component {
     return (
       <Menu>
         <Menu.Item
+          name='signUp'
+          as={Link}
+          to="signUp"
+          active={activeItem === 'signUp'}
+          onClick={this.handleItemClick}
+        />
+        <Menu.Item
           name='login'
           as={Link}
           to="login"

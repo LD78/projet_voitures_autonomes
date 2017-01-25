@@ -2,13 +2,12 @@
 import React, {Component, PropTypes} from 'react';
 import { Button, Input, Form } from 'semantic-ui-react'
 
-import * as loginActions from '../actions/login';
+import * as signUpActions from '../actions/signUp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 @connect(state => ({
-  profile: state.profile,
-  login: state.login
+  signUp: state.signUp
 }))
 
 export default class Login extends Component {
@@ -17,7 +16,8 @@ export default class Login extends Component {
     super();
     this.state = {
       user: "",
-      password: ""
+      password: "",
+      email: ""
     };
   }
 
@@ -25,34 +25,39 @@ export default class Login extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  login(e) {
+
+  signUp(e) {
     e.preventDefault();
-    //this.props.login(this.state.user, this.state.password);
-    this.actions.login(this.state.user, this.state.password)
+    this.actions.signUp(this.state.email, this.state.user, this.state.password)
   }
 
 
   render() {
 
-    console.log("LOGIN");
+    console.log("SIGNUP");
     console.log(this.props);
 
-    const loginStyle = {
+    const signUpStyle = {
       container : {
         marginTop : "10px",
       }
     }
 
-    const {login: { username }, dispatch} = this.props;
-    const actions = bindActionCreators(loginActions, dispatch);
+    const {signUp: { username }, dispatch} = this.props;
+    const actions = bindActionCreators(signUpActions, dispatch);
 
     return (
-      <div className="ui middle aligned center aligned grid" style ={loginStyle.container}>
+      <div className="ui middle aligned center aligned grid" style ={signUpStyle.container}>
 
         <Form>
           <h2>
-            Se connecter
+            Sign Up
           </h2>
+          <Form.Field>
+            <Input type="text" name="@email" value={this.state.email}
+                   placeholder="@email"
+                   onChange={this.handleChange.bind(this)}/>
+          </Form.Field>
           <Form.Field>
             <Input type="text" name="user" value={this.state.user}
                    placeholder="Username"
@@ -63,8 +68,7 @@ export default class Login extends Component {
                    placeholder="Password"
                    onChange={this.handleChange.bind(this)}/>
           </Form.Field>
-          <p>Sign Up</p>
-          <Button color='teal' type="submit" onClick={() => actions.login(this.state.user, this.state.password)}>Connexion</Button>
+          <Button color='teal' type="submit" onClick={() => actions.signUp(this.state.email, this.state.user, this.state.password)}>Sign Up</Button>
         </Form>
       </div>
     );

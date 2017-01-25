@@ -9,6 +9,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
 	email: {type: String, unique: true},
 	username: String,
+	password: String,
 	fleetName: String
 });
 

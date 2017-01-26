@@ -5,6 +5,7 @@ import React, {Component, PropTypes} from 'react';
 import { Button, Input, Form } from 'semantic-ui-react'
 
 import * as profileActions from '../actions/profile';
+import * as carActions from '../actions/car';
 
 import * as api from '../actions/api';
 
@@ -14,7 +15,8 @@ import axios from 'axios';
 
 @connect(state => ({
   profile: state.profile,
-  login: state.login
+  login: state.login,
+    car: state.car
 }))
 
 export default class Profile extends Component {
@@ -75,6 +77,7 @@ export default class Profile extends Component {
 
     const { profile: { carArray }, dispatch} = this.props;// Permet de dispacth info au fils
     const actions = bindActionCreators(profileActions, dispatch);// Permet de lancer les actions
+      const carActions = bindActionCreators(carActions, dispatch);
 
     alert(this.state.cars);
     console.log("PROFILE");
@@ -103,7 +106,7 @@ export default class Profile extends Component {
             <Button color='blue' type="submit" onClick={() => actions.addCar(this.state.carId)
             }>Create Car</Button>
 
-            <Button color='red' type="submit" onClick={() => alert("car delete:" + this.state.carId)
+            <Button color='red' type="submit" onClick={() => carActions.getCarsDB()
             }>Delete Car</Button>
 
             <Form.Field>

@@ -2,6 +2,7 @@
  * Created by Yaku on 18/01/2017.
  */
 import * as types from '../constants/car';
+import * as apiDB from '../actions/apiDB';
 
 const initialState = {
   carDB: []
@@ -10,11 +11,12 @@ const initialState = {
 export default function getCar(state = initialState, action) {
   switch (action.type) {
 
-    case typesCar.GET_CAR:
-      alert('Reducer --> GET_CAR ' + action.id);
-
+    case types.GET_CARS:
+      alert('Reducer --> GET_CARS' + action.id);
+      console.log('GET_CARS');
+      console.log(action.DB);
       return {
-        ...state
+        ...state, carDB
       };
 
 

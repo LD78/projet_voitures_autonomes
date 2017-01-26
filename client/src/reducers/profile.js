@@ -74,7 +74,7 @@ export default function profile(state = initialState, action) {
 				...state
 			};
 
-        case types.DELETE_FLEET: 
+		case types.DELETE_FLEET: 
         	alert('Reducer --> DELETE_FLEET ' + action.name);
         	           axios.get('http://localhost:5000/api/fleets') 
 						   .then(function (response) { 
@@ -103,7 +103,7 @@ export default function profile(state = initialState, action) {
         		...state, testDeOuf: true 
         	};
 
-        case types.ADD_TRAJET:
+		case types.ADD_TRAJET:
     	alert("Add_trajet");
     	alert(action.car);
     	console.log("Add_TRAJET");

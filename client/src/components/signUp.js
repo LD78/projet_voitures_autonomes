@@ -26,10 +26,10 @@ export default class Login extends Component {
   }
 
 
-  signUp(e) {
+ /* signUp(e) {
     e.preventDefault();
     this.actions.signUp(this.state.email, this.state.user, this.state.password)
-  }
+  }*/
 
 
   render() {
@@ -54,7 +54,7 @@ export default class Login extends Component {
             Sign Up
           </h2>
           <Form.Field>
-            <Input type="text" name="@email" value={this.state.email}
+            <Input type="text" name="email" value={this.state.email}
                    placeholder="@email"
                    onChange={this.handleChange.bind(this)}/>
           </Form.Field>

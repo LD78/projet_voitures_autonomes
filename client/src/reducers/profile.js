@@ -32,14 +32,14 @@ export default function profile(state = initialState, action) {
 					headers: {
 						'Content-Type': 'application/vnd.api+json'}
 				})
-        .then(function (response) {
-	console.log('GOOD');
-	console.log(response);
-})
-        .catch(function (error) {
-	console.log('FAIL');
-	console.log(error);
-});
+			.then(function (response) {
+			console.log('GOOD');
+			console.log(response);
+			})
+			.catch(function (error) {
+			console.log('FAIL');
+			console.log(error);
+		    });
 
 			return {
 				...state
@@ -50,6 +50,26 @@ export default function profile(state = initialState, action) {
 			alert('Reducer --> ADD_FLEET ' + action.name);
 			state.fleetArray.push(action.name);
 			alert(state.fleetArray);
+            axios.post('http://localhost:5000/api/fleets', {
+                    data: {
+                        type: 'fleets',
+                        attributes: {
+                            fleetId: action.name
+                        }
+                    }
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/vnd.api+json'}
+                })
+                .then(function (response) {
+                    console.log('GOOD');
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log('FAIL');
+                    console.log(error);
+                });
 			return {
 				...state, testDeOuf: true
 			};

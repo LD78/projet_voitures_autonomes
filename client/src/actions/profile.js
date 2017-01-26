@@ -1,4 +1,13 @@
 import * as types from '../constants/profile';
+import * as typesCar from '../constants/car';
+
+export function getCar(id) {
+  alert('Action --> getCar');
+  return {
+    type: typesCar.GET_CAR,
+    id
+  };
+}
 
 export function addCar(id) {
 	alert('Action --> addCar');

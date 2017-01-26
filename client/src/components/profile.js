@@ -27,48 +27,15 @@ export default class Profile extends Component {
     super();
     this.state = {
       carId: "",
-      fleetName: ""
+      fleetName: "",
+      cars:[]
     };
   }
 
   data = {};
-//https://github.com/mzabriskie/axios
+/*
   componentWillMount() {
-    /*axios.get("http://localhost:5000/api/cars").then(response => {
-      this.setState({ data: response.data.cars });
-      console.log("componentWillMount");
-      console.log(this.data);
-    })*/
-
-   /* var filterCar = 588924d77af09ed436433a13;
-    var get_test = api.getRessource('cars', filterCar, 'carId');
-    console.log(get_test);
-    */
-    //const filter = '588924d77af09ed436433a13';
-
-    axios.get('http://localhost:5000/api/cars/', {
-      params: {
-        //carId: 'bbb'
-        //filter: {
-          //simple: {carId: 'agx78310kikololo'}
-        //}
-      }
-    })
-      .then(function (response) {
-        console.log("GET");
-          //console.log(response.data.data);
-          //console.log(response.data.data[0].attributes.carId);
-          filter(response.data.data);
-        //console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    function filter(array){
-      console.log("filter");
-      console.log(array);
-    }
-  }
+  }*/
 
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
@@ -76,13 +43,43 @@ export default class Profile extends Component {
 
   render () {
 
+    axios.get('http://localhost:5000/api/cars/', {
+    })
+      .then(function (response) {
+        console.log("GET");
+        getCars(response.data.data);
+        //getCars(response.data.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+
+    function getCars(arrayDb){
+      console.log("getCars");
+      arrayDb.forEach(function(element) {
+        console.log(element.attributes.carId);
+        this.state.cars.push(element.attributes.carId);
+      });
+    }
+
+    function getCar(array, carId){
+      console.log("getCar");
+      array.forEach(function(element) {
+        if(element.attributes.carId == carId){
+          console.log(element.attributes.carId);
+        }
+      });
+    }
+
     const { profile: { carArray }, dispatch} = this.props;// Permet de dispacth info au fils
     const actions = bindActionCreators(profileActions, dispatch);// Permet de lancer les actions
 
+    alert(this.state.cars);
     console.log("PROFILE");
     console.log(this.props);
-    //console.log(this.props.profile.utilisateur);
-    //console.log("PROFILE TEST"+this.props.login.authenticated);
+    console.log(this.state);
 
     const loginStyle = {
       container : {
@@ -155,33 +152,6 @@ export default class Profile extends Component {
       </div>
     );
 
-
-
-    /*return (
-      <div className="ui middle aligned center aligned grid">
-        <h1>Test Application React </h1>
-        <div>
-
-          <h2>CRUD Action </h2>
-
-          <Button color='blue' type="submit" onClick={() => alert("click profile button")
-          + this.props.addCar("toyota hybride")
-          }>Create Car</Button>
-
-          <Form.Field>
-            <Input type="car" name="carId" placeholder="Car"/>
-          </Form.Field>
-
-          <Button color='red' type="submit" onClick={() => alert("click profile button")
-          }>Delate Car</Button>
-
-          <Form.Field>
-            <Input type="car" name="carId" placeholder="Car"/>
-          </Form.Field>
-
-        </div>
-      </div>
-    );*/
   }
 }
 

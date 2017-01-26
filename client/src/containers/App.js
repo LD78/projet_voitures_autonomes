@@ -6,6 +6,25 @@ import  Login  from '../components/login';
 import  Profile  from '../components/profile';
 import { connect } from 'react-redux';
 
+import {checkAuth} from '../actions/auth';
+
+@connect(
+  store => {
+    return {
+      user: store.user
+    };
+  },
+  dispatch => {
+    return {
+      checkAuth: () => {
+        return dispatch(checkAuth());
+      }/*,
+      logoutAction: () => {
+        dispatch(logout());
+      }*/
+    }
+  })
+
 @connect(state => ({
   login: state.login
 }))
@@ -22,6 +41,8 @@ class App extends Component {
 */
 
   render(){
+    console.log("APP");
+    console.log(this.props);
     return (
       <div>
         <AppMenu />

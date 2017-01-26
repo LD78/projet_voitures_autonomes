@@ -14,6 +14,7 @@ const initialState = {
 const user = (state = initialState, action) => {
 	switch (action.type) {
     // LOGIN
+			/*
 		case C.LOGIN_REQUEST: {
 			return {
 				...state,
@@ -36,7 +37,7 @@ const user = (state = initialState, action) => {
 				isAuthenticating: false,
 				error: action.payload
 			};
-		}
+		}*/
     // AUTH
 		case C.CHECK_AUTH: {
 			return {
@@ -49,9 +50,9 @@ const user = (state = initialState, action) => {
 				...state,
 				isAuthenticating: false,
 				isAuthenticated: true,
-				id: action.payload.accountId,
-				token: action.payload.accessToken,
-				error: null
+				//id: action.payload.accountId,
+				//token: action.payload.accessToken,
+				//error: null
 			};
 		}
 		case C.CHECK_AUTH_KO: {
@@ -59,7 +60,7 @@ const user = (state = initialState, action) => {
 				...state,
 				isAuthenticating: false
 			};
-		}
+		}/*
     // REGISTER
 		case C.REGISTER_REQUEST: {
 			return {
@@ -113,7 +114,7 @@ const user = (state = initialState, action) => {
 				token: null,
 				isAuthenticated: false
 			};
-		}
+		}*/
 		default:
 			return {...state};
 	}

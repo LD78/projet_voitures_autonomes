@@ -3,6 +3,7 @@ import React, {Component, PropTypes} from 'react';
 import { Button, Input, Form } from 'semantic-ui-react'
 
 import * as loginActions from '../actions/login';
+import * as authActions from '../actions/auth';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -39,6 +40,7 @@ export default class Login extends Component {
 
     const {login: { username }, dispatch} = this.props;
     const actions = bindActionCreators(loginActions, dispatch);
+    //const actions = bindActionCreators(authActions, dispatch);
 
     return (
       <div className="ui middle aligned center aligned grid" style ={loginStyle.container}>

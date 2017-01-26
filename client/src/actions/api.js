@@ -64,6 +64,7 @@ export function login(creds) {
 }
 
 export function authenticate(token) {
+	console.log("Axios --> authenticate");
 	return axios({
 		url: `${CONFIG.apiUrl}/users/authenticate`,
 		timeout: 20000,

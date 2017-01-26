@@ -33,10 +33,12 @@ export function addUser(email) {
 	};
 }
 
-export function addTrajet(trajetId) {
+export function addTrajet(destination, car, fleet) {
 	alert('Action --> addTrajet');
 	return {
 		type: types.ADD_TRAJET,
-		trajetId
+    destination,
+    car,
+    fleet
 	};
 }

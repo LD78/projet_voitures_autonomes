@@ -71,8 +71,39 @@ export default function profile(state = initialState, action) {
                     console.log(error);
                 });
 			return {
-				...state, testDeOuf: true
+				...state
 			};
+
+    case types.ADD_TRAJET:
+    	alert("Add_trajet");
+    	alert(action.car);
+    	console.log("Add_TRAJET");
+      console.log(action.car);
+
+      axios.post('http://localhost:5000/api/trajets', {
+          data: {
+            type: 'trajets',
+            attributes: {
+              trajetId: action.destination + action.car,
+              arrival: action.destination
+            }
+          }
+        },
+        {
+          headers: {
+            'Content-Type': 'application/vnd.api+json'}
+        })
+        .then(function (response) {
+          console.log('GOOD');
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log('FAIL');
+          console.log(error);
+        });
+      return {
+        ...state
+      };
 
 		default:
 			return state;

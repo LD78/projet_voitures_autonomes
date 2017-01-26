@@ -25,6 +25,14 @@ export function addFleet(name) {
 	};
 }
 
+export function deleteFleet(name) { 
+	alert('Action --> deleteFleet'); 
+	return { 
+		type: types.DELETE_FLEET, 
+		name 
+	};
+ }
+
 export function addUser(email) {
 	alert('Action --> addUser');
 	return {

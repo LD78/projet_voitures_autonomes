@@ -74,7 +74,36 @@ export default function profile(state = initialState, action) {
 				...state
 			};
 
-    case types.ADD_TRAJET:
+        case types.DELETE_FLEET: 
+        	alert('Reducer --> DELETE_FLEET ' + action.name);
+        	           axios.get('http://localhost:5000/api/fleets') 
+						   .then(function (response) { 
+						   	console.log('GOOD GET'); 
+						   	console.log(response); 
+						   	response.data.data.forEach(function(element) { 
+						   		if(element.attributes.fleetId == action.name){ 
+						   			console.log(element.attributes.fleetId);  
+						   			axios.delete('http://localhost:5000/api/fleets/'+response.data.data[element].id) 
+										.then(function (response) { 
+											console.log('GOOD DELETE'); 
+											console.log(response); 
+										}) 
+										.catch(function (error) { 
+											console.log('FAIL DELETE'); 
+											console.log(error); 
+										}); 
+						   		} 
+						   	}) 
+						   }) 
+						   .catch(function (error) { 
+						   	console.log('FAIL GET'); 
+						   	console.log(error); 
+						   });  
+        	return { 
+        		...state, testDeOuf: true 
+        	};
+
+        case types.ADD_TRAJET:
     	alert("Add_trajet");
     	alert(action.car);
     	console.log("Add_TRAJET");

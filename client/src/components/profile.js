@@ -7,8 +7,6 @@ import { Button, Input, Form } from 'semantic-ui-react'
 import * as profileActions from '../actions/profile';
 import * as carActions from '../actions/car';
 
-import * as api from '../actions/api';
-
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import axios from 'axios';
@@ -16,7 +14,7 @@ import axios from 'axios';
 @connect(state => ({
   profile: state.profile,
   login: state.login,
-    car: state.car
+  car: state.car
 }))
 
 export default class Profile extends Component {
@@ -45,7 +43,7 @@ export default class Profile extends Component {
 
   render () {
 
-    axios.get('http://localhost:5000/api/cars/', {
+   /* axios.get('http://localhost:5000/api/cars/', {
     })
       .then(function (response) {
         console.log("GET");
@@ -73,13 +71,12 @@ export default class Profile extends Component {
           console.log(element.attributes.carId);
         }
       });
-    }
+    }*/
 
     const { profile: { carArray }, dispatch} = this.props;// Permet de dispacth info au fils
     const actions = bindActionCreators(profileActions, dispatch);// Permet de lancer les actions
-      const carActions = bindActionCreators(carActions, dispatch);
+    //const carActions = bindActionCreators(carActions, dispatch);
 
-    alert(this.state.cars);
     console.log("PROFILE");
     console.log(this.props);
     console.log(this.state);

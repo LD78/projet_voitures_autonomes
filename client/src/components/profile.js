@@ -5,6 +5,9 @@ import React, {Component, PropTypes} from 'react';
 import { Button, Input, Form } from 'semantic-ui-react'
 
 import * as profileActions from '../actions/profile';
+
+import * as api from '../actions/api';
+
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import axios from 'axios';
@@ -37,20 +40,34 @@ export default class Profile extends Component {
       console.log(this.data);
     })*/
 
-    axios.get('http://localhost:5000/api/cars', {
+   /* var filterCar = 588924d77af09ed436433a13;
+    var get_test = api.getRessource('cars', filterCar, 'carId');
+    console.log(get_test);
+    */
+    //const filter = '588924d77af09ed436433a13';
+
+    axios.get('http://localhost:5000/api/cars/', {
       params: {
-        filter: {
-          simple: {carId: 'agx78310kikololo'}
-        }
+        //carId: 'bbb'
+        //filter: {
+          //simple: {carId: 'agx78310kikololo'}
+        //}
       }
     })
       .then(function (response) {
         console.log("GET");
-        console.log(response);
+          //console.log(response.data.data);
+          //console.log(response.data.data[0].attributes.carId);
+          filter(response.data.data);
+        //console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
+    function filter(array){
+      console.log("filter");
+      console.log(array);
+    }
   }
 
   handleChange(e) {

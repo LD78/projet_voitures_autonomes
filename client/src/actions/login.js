@@ -9,3 +9,12 @@ export function login(username, password) {
 	};
 }
 
+export function deleteAccount(email, password) {
+  alert('Action --> deleteAccount');
+  return {
+    type: types.DEL_ACCOUNT,
+    email,
+    password
+  };
+}
+

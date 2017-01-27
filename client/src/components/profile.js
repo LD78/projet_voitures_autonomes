@@ -28,6 +28,7 @@ export default class Profile extends Component {
     this.state = {
       carId: "",
       fleetName: "",
+      fleetNewName: "",
       tripCar:"",
       tripFleet:"",
       tripDestination:"",
@@ -124,7 +125,7 @@ export default class Profile extends Component {
             <Button color='red' type="submit" onClick={() => actions.deleteFleet(this.state.fleetName)
                  }>Delete Fleet</Button>
 
-            <Button color='yellow' type="submit" onClick={() => actions.patchFleet(this.state.fleetName)
+            <Button color='yellow' type="submit" onClick={() => actions.patchFleet(this.state.fleetNewName)
             }>Update Fleet</Button>
 
             <Form.Field>
@@ -132,7 +133,7 @@ export default class Profile extends Component {
             </Form.Field>
 
             <Form.Field>
-              <Input type="fleet" name="fleetName" placeholder="New Fleet Name" onChange={this.handleChange.bind(this)}/>
+              <Input type="fleet" name="fleetNewName" placeholder="New Fleet Name" onChange={this.handleChange.bind(this)}/>
             </Form.Field>
 
           </div>

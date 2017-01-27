@@ -69,15 +69,18 @@ export default function profile(state = initialState, action) {
 			};
 
         case types.PATCH_FLEET:
+          console.log("PATCH_FLEET_________");
             axios.get('http://localhost:5000/api/fleets')
                 .then(function (response) {
                     response.data.data.forEach(function(element) {
 
                         if(element.attributes.fleetId == action.name){
+                            console.log("PATCH_FLEET_IF");
                             console.log(element.attributes.fleetId);
                             axios.patch('http://localhost:5000/api/fleets/'+element.id, {
                                     data: {
                                         type: 'fleets',
+																				id: element.id,
                                         attributes: {
                                             fleetId: action.newName
                                         }
@@ -88,7 +91,8 @@ export default function profile(state = initialState, action) {
                                         'Content-Type': 'application/vnd.api+json'}
                                 })
                                 .then(function (response) {
-                                    console.log(response);
+																		console.log("GOOD");
+																		console.log(response);
                                 })
                                 .catch(function (error) {
                                     console.log(error);

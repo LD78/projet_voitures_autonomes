@@ -29,6 +29,7 @@ export function patchFleet(newName) {
     alert('Action --> patchFleet');
     return {
         type: types.PATCH_FLEET,
+				name,
         newName
     };
 }

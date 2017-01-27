@@ -68,6 +68,41 @@ export default function profile(state = initialState, action) {
 				...state
 			};
 
+        case types.PATCH_FLEET:
+            axios.get('http://localhost:5000/api/fleets')
+                .then(function (response) {
+                    response.data.data.forEach(function(element) {
+
+                        if(element.attributes.fleetId == action.name){
+                            console.log(element.attributes.fleetId);
+                            axios.patch('http://localhost:5000/api/fleets/'+element.id, {
+                                    data: {
+                                        type: 'fleets',
+                                        attributes: {
+                                            fleetId: action.newName
+                                        }
+                                    }
+                                },
+                                {
+                                    headers: {
+                                        'Content-Type': 'application/vnd.api+json'}
+                                })
+                                .then(function (response) {
+                                    console.log(response);
+                                })
+                                .catch(function (error) {
+                                    console.log(error);
+                                });
+                        }
+                    })
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            return {
+                ...state, testDeOuf: true
+            };
+
 		case types.DELETE_FLEET: 
         	 axios.get('http://localhost:5000/api/fleets') 
 						   .then(function (response) {

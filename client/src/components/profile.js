@@ -124,9 +124,17 @@ export default class Profile extends Component {
             <Button color='red' type="submit" onClick={() => actions.deleteFleet(this.state.fleetName)
                  }>Delete Fleet</Button>
 
+            <Button color='yellow' type="submit" onClick={() => actions.patchFleet(this.state.fleetName)
+            }>Update Fleet</Button>
+
             <Form.Field>
               <Input type="fleet" name="fleetName" placeholder="Fleet Name" onChange={this.handleChange.bind(this)}/>
             </Form.Field>
+
+            <Form.Field>
+              <Input type="fleet" name="fleetName" placeholder="New Fleet Name" onChange={this.handleChange.bind(this)}/>
+            </Form.Field>
+
           </div>
 
           <div style ={loginStyle.divPart}>

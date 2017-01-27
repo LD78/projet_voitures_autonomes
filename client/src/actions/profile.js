@@ -25,6 +25,14 @@ export function addFleet(name) {
 	};
 }
 
+export function patchFleet(newName) {
+    alert('Action --> patchFleet');
+    return {
+        type: types.PATCH_FLEET,
+        newName
+    };
+}
+
 export function deleteFleet(name) { 
 	alert('Action --> deleteFleet'); 
 	return { 

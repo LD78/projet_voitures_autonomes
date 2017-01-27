@@ -12,7 +12,6 @@ export default function getCar(state = initialState, action) {
   switch (action.type) {
 
     case types.GET_CARS:
-      alert('Reducer --> GET_CARS');
       console.log('GET_CARS');
 
       return {

@@ -30,15 +30,7 @@ import {checkAuth} from '../actions/auth';
 }))
 
 class App extends Component {
-/*
-  render() {
-    return (
-      <div>
-         <MainContainer />
-      </div>
-    )
-  }
-*/
+
 
   render(){
     console.log("APP");

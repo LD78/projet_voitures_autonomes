@@ -47,7 +47,7 @@ export default class Login extends Component {
 
         <Form>
           <h2>
-            Se connecter
+            Sign In
           </h2>
           <Form.Field>
             <Input type="text" name="user" value={this.state.user}

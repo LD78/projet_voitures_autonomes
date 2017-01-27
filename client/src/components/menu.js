@@ -16,9 +16,7 @@ export default class AppMenu extends Component {
   state = {};
 
   handleItemClick = (e, {name}) => {
-    alert("click onglet");
     this.setState({activeItem: name});
-    alert(this.state.activeItem);
   };
 
   render() {
@@ -57,12 +55,3 @@ export default class AppMenu extends Component {
   }
 
 }
-
-/*
-function mapStateToProps(state) {
-  return {
-    authenticated: state.auth.authenticated
-  }
-}
-*/
-//export default connect(mapStateToProps)(AppMenu);

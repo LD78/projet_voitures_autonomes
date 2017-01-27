@@ -17,9 +17,7 @@ export default function profile(state = initialState, action) {
 	switch (action.type) {
 
 		case types.ADD_CAR:
-			alert('Reducer --> ADD_CAR ');
 			state.carArray.push('*' + action.id + '*');
-      // state.carArray.push(action.id);
 			axios.post('http://localhost:5000/api/cars', {
 				data: {
 					type: 'cars',
@@ -33,11 +31,9 @@ export default function profile(state = initialState, action) {
 						'Content-Type': 'application/vnd.api+json'}
 				})
 			.then(function (response) {
-			console.log('GOOD');
 			console.log(response);
 			})
 			.catch(function (error) {
-			console.log('FAIL');
 			console.log(error);
 		    });
 
@@ -47,9 +43,7 @@ export default function profile(state = initialState, action) {
 			};
 
 		case types.ADD_FLEET:
-			alert('Reducer --> ADD_FLEET ' + action.name);
 			state.fleetArray.push(action.name);
-			alert(state.fleetArray);
             axios.post('http://localhost:5000/api/fleets', {
                     data: {
                         type: 'fleets',
@@ -75,28 +69,23 @@ export default function profile(state = initialState, action) {
 			};
 
 		case types.DELETE_FLEET: 
-        	alert('Reducer --> DELETE_FLEET ' + action.name);
-        	           axios.get('http://localhost:5000/api/fleets') 
-						   .then(function (response) { 
-						   	console.log('GOOD GET'); 
-						   	console.log(response); 
-						   	response.data.data.forEach(function(element) { 
+        	 axios.get('http://localhost:5000/api/fleets') 
+						   .then(function (response) {
+                 response.data.data.forEach(function(element) { 
+
 						   		if(element.attributes.fleetId == action.name){ 
 						   			console.log(element.attributes.fleetId);  
-						   			axios.delete('http://localhost:5000/api/fleets/'+response.data.data[element].id) 
+						   			axios.delete('http://localhost:5000/api/fleets/'+element.id) 
 										.then(function (response) { 
-											console.log('GOOD DELETE'); 
 											console.log(response); 
 										}) 
 										.catch(function (error) { 
-											console.log('FAIL DELETE'); 
 											console.log(error); 
 										}); 
 						   		} 
 						   	}) 
 						   }) 
 						   .catch(function (error) { 
-						   	console.log('FAIL GET'); 
 						   	console.log(error); 
 						   });  
         	return { 
@@ -104,10 +93,6 @@ export default function profile(state = initialState, action) {
         	};
 
 		case types.ADD_TRAJET:
-    	alert("Add_trajet");
-    	alert(action.car);
-    	console.log("Add_TRAJET");
-      console.log(action.car);
 
       axios.post('http://localhost:5000/api/trajets', {
           data: {
@@ -123,11 +108,9 @@ export default function profile(state = initialState, action) {
             'Content-Type': 'application/vnd.api+json'}
         })
         .then(function (response) {
-          console.log('GOOD');
           console.log(response);
         })
         .catch(function (error) {
-          console.log('FAIL');
           console.log(error);
         });
       return {

@@ -27,6 +27,7 @@ export default class Profile extends Component {
     super();
     this.state = {
       carId: "",
+      carNewId: "",
       fleetName: "",
       fleetNewName: "",
       tripCar:"",
@@ -110,8 +111,15 @@ export default class Profile extends Component {
             <Button color='red' type="submit" onClick={() => carActions.getCarsDB()
             }>Delete Car</Button>
 
+            <Button color='yellow' type="submit" onClick={() => alert(this.state.carId) + actions.patchCar(this.state.carId, this.state.carNewId)
+            }>Update Car</Button>
+
             <Form.Field>
               <Input type="car" name="carId" placeholder="Number plate" onChange={this.handleChange.bind(this)}/>
+            </Form.Field>
+
+            <Form.Field>
+              <Input type="car" name="carNewId" placeholder="New Number plate" onChange={this.handleChange.bind(this)}/>
             </Form.Field>
 
             {this.props.profile.carArray}

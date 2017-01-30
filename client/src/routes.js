@@ -9,6 +9,7 @@ import Login from './components/login';
 import Profile from './components/profile';
 import SignUp from './components/signUp';
 import Car from './components/car';
+import Fleet from './components/fleet';
 
 const history = syncHistoryWithStore(browserHistory, store);
 
@@ -21,6 +22,7 @@ export default(
         <Route path="login" component={Login} />
         <Route path="signUp" component={SignUp} />
         <Route path="car" component={Car} />
+        <Route path="fleet" component={Fleet} />
       </Route>
     </Router>
   </Provider>

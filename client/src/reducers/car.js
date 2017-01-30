@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const initialState = {
   carId: "",
-    carNewId: ""
+  carNewId: ""
 };
 
 export default function getCar(state = initialState, action) {

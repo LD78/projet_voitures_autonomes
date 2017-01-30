@@ -17,7 +17,7 @@ export default class Login extends Component {
   constructor() {
     super();
     this.state = {
-      user: "",
+      email: "",
       password: ""
     };
   }
@@ -50,7 +50,7 @@ export default class Login extends Component {
             Sign In
           </h2>
           <Form.Field>
-            <Input type="text" name="user" value={this.state.user}
+            <Input type="text" name="email" value={this.state.email}
                    placeholder="email"
                    onChange={this.handleChange.bind(this)}/>
           </Form.Field>
@@ -60,8 +60,8 @@ export default class Login extends Component {
                    onChange={this.handleChange.bind(this)}/>
           </Form.Field>
           <p>Sign Up</p>
-          <Button color='teal' type="submit" onClick={() => actions.login(this.state.user, this.state.password)}>Connexion</Button>
-          <Button type="submit" onClick={() => actions.login(this.state.user, this.state.password)}>Delete Account</Button>
+          <Button color='teal' type="submit" onClick={() => actions.login(this.state.email, this.state.password)}>Connexion</Button>
+          <Button type="submit" onClick={() => actions.deleteAccount(this.state.email, this.state.password)}>Delete Account</Button>
         </Form>
       </div>
     );

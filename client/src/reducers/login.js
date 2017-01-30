@@ -3,8 +3,8 @@ import axios from 'axios';
 import {browserHistory} from 'react-router';
 
 const initialState = {
-	username: 'esme',
-	password: 'sudria',
+  email: '',
+	password: '',
 	authenticated: false
 };
 
@@ -12,19 +12,32 @@ export default function login(state = initialState, action) {
 	switch (action.type) {
 
 		case types.LOGIN: {
+
+      axios.get('http://localhost:5000/api/users')
+        .then(function (response) {
+          response.data.data.forEach(function(element) {
+            if(element.attributes.email == action.email && element.attributes.password == action.password){
+              alert("You are connected !!! ")
+            }
+          })
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
 			return {
-				...state, authenticated: true
+				...state
 			};
 		}
 
     case types.DEL_ACCOUNT: {
 
-      axios.get('http://localhost:5000/api/ucers')
+      axios.get('http://localhost:5000/api/users')
         .then(function (response) {
           response.data.data.forEach(function(element) {
 
-            if(element.attributes.email == action.email){
-              axios.delete('http://localhost:5000/api/fleets/'+element.id)
+            if(element.attributes.email == action.email && element.attributes.password == action.password){
+              axios.delete('http://localhost:5000/api/users/'+element.id)
                 .then(function (response) {
                   console.log(response);
                 })

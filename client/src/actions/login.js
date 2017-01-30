@@ -1,9 +1,9 @@
 import * as types from '../constants/login';
 
-export function login(username, password) {
+export function login(email, password) {
 	return {
 		type: types.LOGIN,
-		username,
+    email,
 		password
 	};
 }

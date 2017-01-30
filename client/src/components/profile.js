@@ -125,7 +125,7 @@ export default class Profile extends Component {
             <Button color='red' type="submit" onClick={() => actions.deleteFleet(this.state.fleetName)
                  }>Delete Fleet</Button>
 
-            <Button color='yellow' type="submit" onClick={() => actions.patchFleet(this.state.fleetNewName)
+            <Button color='yellow' type="submit" onClick={() => actions.patchFleet(this.state.fleetName, this.state.fleetNewName)
             }>Update Fleet</Button>
 
             <Form.Field>

@@ -69,10 +69,17 @@ export default function profile(state = initialState, action) {
 			};
 
         case types.PATCH_FLEET:
+          alert("REDUCER --> PATCH_FLEET");
           console.log("PATCH_FLEET_________");
             axios.get('http://localhost:5000/api/fleets')
                 .then(function (response) {
+
+                  console.log("PATCH_FLEET_then");
+                  console.log("action.name: " + action.name);
+
                     response.data.data.forEach(function(element) {
+
+                      console.log("element: " + element.attributes.fleetId);
 
                         if(element.attributes.fleetId == action.name){
                             console.log("PATCH_FLEET_IF");

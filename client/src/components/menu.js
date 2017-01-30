@@ -31,6 +31,7 @@ export default class AppMenu extends Component {
         active={activeItem === 'profile'}
         onClick={this.handleItemClick}
       />
+
     //}
 
     return (
@@ -49,6 +50,13 @@ export default class AppMenu extends Component {
           active={activeItem === 'login'}
           onClick={this.handleItemClick}
         />
+          <Menu.Item
+              name='car'
+              as={Link}
+              to="car"
+              active={activeItem === 'car'}
+              onClick={this.handleItemClick}
+          />
         {logMenu}
       </Menu>
     )

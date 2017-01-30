@@ -123,27 +123,6 @@ export default class Profile extends Component {
             </Form.Field>
 
             {this.props.profile.carArray}
-
-          </div>
-
-          <div style ={loginStyle.divPart}>
-            <Button color='blue' type="submit" onClick={() => actions.addFleet(this.state.fleetName)
-            }>Create Fleet</Button>
-
-            <Button color='red' type="submit" onClick={() => actions.deleteFleet(this.state.fleetName)
-                 }>Delete Fleet</Button>
-
-            <Button color='yellow' type="submit" onClick={() => actions.patchFleet(this.state.fleetName, this.state.fleetNewName)
-            }>Update Fleet</Button>
-
-            <Form.Field>
-              <Input type="fleet" name="fleetName" placeholder="Fleet Name" onChange={this.handleChange.bind(this)}/>
-            </Form.Field>
-
-            <Form.Field>
-              <Input type="fleet" name="fleetNewName" placeholder="New Fleet Name" onChange={this.handleChange.bind(this)}/>
-            </Form.Field>
-
           </div>
 
           <div style ={loginStyle.divPart}>
@@ -157,7 +136,7 @@ export default class Profile extends Component {
 
           <div style ={loginStyle.divPart}>
             <Button color='green' type="submit" onClick={() =>console.log("Add trajet submit"+ this.state.tripDestination)
-            + actions.addTrajet(this.state.tripDestination, this.state.tripCar, this.state)}
+            + actions.addTrajet(this.state.tripDestination, this.state.tripCar, this.state.tripFleet)}
             >Launch Trip</Button>
 
             <Form.Field>

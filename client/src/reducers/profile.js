@@ -186,28 +186,43 @@ export default function profile(state = initialState, action) {
 
 		case types.ADD_TRAJET:
 
-      axios.post('http://localhost:5000/api/trajets', {
-          data: {
-            type: 'trajets',
-            attributes: {
-              trajetId: action.destination + action.car,
-              arrival: action.destination
-            }
-          }
-        },
-        {
-          headers: {
-            'Content-Type': 'application/vnd.api+json'}
-        })
+      axios.get('http://localhost:5000/api/cars')
         .then(function (response) {
-          console.log(response);
+          response.data.data.forEach(function(element) {
+
+            if(element.attributes.carId == action.car){
+
+              axios.post('http://localhost:5000/api/trajets', {
+                  data: {
+                    type: 'trajets',
+                    attributes: {
+                      trajetId: action.destination + action.car,
+                      arrival: action.destination
+                    }
+                  }
+                },
+                {
+                  headers: {
+                    'Content-Type': 'application/vnd.api+json'}
+                })
+                .then(function (response) {
+                  console.log(response);
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+            }
+          })
         })
         .catch(function (error) {
           console.log(error);
         });
+
       return {
         ...state
       };
+
+
 
 		default:
 			return state;

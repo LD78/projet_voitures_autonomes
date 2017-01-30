@@ -46,6 +46,29 @@ export default function getCar(state = initialState, action) {
         ...state
       };
 
+    case types.DELETE_FLEET:
+      axios.get('http://localhost:5000/api/fleets')
+        .then(function (response) {
+          response.data.data.forEach(function(element) {
+
+            if(element.attributes.fleetName == action.name){
+              axios.delete('http://localhost:5000/api/fleets/'+element.name)
+                .then(function (response) {
+                  console.log(response);
+                })
+                .catch(function (error) {
+                  console.log(error);
+                });
+            }
+          })
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      return {
+        ...state
+      };
+
     case types.PATCH_FLEET:
       alert("REDUCER --> PATCH_FLEET");
       axios.get('http://localhost:5000/api/fleets')

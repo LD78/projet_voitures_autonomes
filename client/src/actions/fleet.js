@@ -24,9 +24,9 @@ export function patchFleet(name, newName) {
   };
 }
 
-export function deleteFleet(id) {
+export function deleteFleet(name) {
   return {
     type: typesFleet.DELETE_FLEET,
-    id
+    name
   };
 }

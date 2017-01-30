@@ -22,6 +22,7 @@ export default function getCar(state = initialState, action) {
 
     case types.ADD_FLEET:
       //state.carArray.push('*' + action.id + '*');
+      alert("REDUCER --> ADD_FLEET: " + action.name);
       axios.post('http://localhost:5000/api/fleets', {
           data: {
             type: 'fleets',

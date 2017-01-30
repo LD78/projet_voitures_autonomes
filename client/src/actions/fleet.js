@@ -7,10 +7,11 @@ export function getFleet(id) {
   };
 }
 
-export function addFleet(id) {
+export function addFleet(name) {
+  alert("ACTION --> ADD_FLEET: " + name);
   return {
     type: typesFleet.ADD_FLEET,
-    id
+    name
   };
 }
 

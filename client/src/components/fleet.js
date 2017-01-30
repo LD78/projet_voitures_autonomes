@@ -59,7 +59,7 @@ export default class Profile extends Component {
           <h2>Action for Fleet</h2>
 
           <div style ={fleetStyle.divPart}>
-            <Button color='blue' type="submit" onClick={() => actions.addFleet(this.state.fleetName)
+            <Button color='blue' type="submit" onClick={() => alert("fleetName Component : " + this.state.fleetName) + actions.addFleet(this.state.fleetName)
             }>Create Fleet</Button>
 
             <Button color='red' type="submit" onClick={() => actions.deleteFleet(this.state.fleetName)

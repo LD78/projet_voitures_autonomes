@@ -5,6 +5,7 @@ import AppMenu from '../components/menu';
 import  Login  from '../components/login';
 import  Profile  from '../components/profile';
 import { connect } from 'react-redux';
+import Car from '../components/car';
 
 import {checkAuth} from '../actions/auth';
 

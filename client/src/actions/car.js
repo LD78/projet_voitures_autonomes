@@ -14,12 +14,12 @@ export function addCar(id) {
     };
 }
 
-export function patchCar(name, newName) {
+export function patchCar(id, newId) {
     alert("ACTION --> PATCH_CAR: " + name);
     return {
         type: typesCar.PATCH_CAR,
-        name,
-        newName
+        id,
+        newId
     };
 }
 

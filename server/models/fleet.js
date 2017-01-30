@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const fleetSchema = new Schema({
-	fleetName: String,
-	fleetId: {type: String, unique: true}
+	fleetName: {type: String, unique: true},
+	fleetId: {type: String}
 });
 
 module.exports = {

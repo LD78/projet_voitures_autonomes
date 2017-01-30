@@ -52,7 +52,7 @@ export default function getCar(state = initialState, action) {
           response.data.data.forEach(function(element) {
 
             if(element.attributes.fleetName == action.name){
-              axios.delete('http://localhost:5000/api/fleets/'+element.name)
+              axios.delete('http://localhost:5000/api/fleets/'+element.id)
                 .then(function (response) {
                   console.log(response);
                 })

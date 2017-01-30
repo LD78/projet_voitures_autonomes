@@ -24,6 +24,7 @@ export function patchCar(id, newId) {
 }
 
 export function deleteCar(id) {
+    alert("ACTION ---> DELETE_CAR: " + id);
     return {
         type: typesCar.DELETE_CAR,
         id

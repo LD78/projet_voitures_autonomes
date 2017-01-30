@@ -59,6 +59,8 @@ export default class Login extends Component {
                    placeholder="Password"
                    onChange={this.handleChange.bind(this)}/>
           </Form.Field>
+          <p>You're</p>
+          {this.props.login.username}
           <p>Sign Up</p>
           <Button color='teal' type="submit" onClick={() => actions.login(this.state.email, this.state.password)}>Connexion</Button>
           <Button type="submit" onClick={() => actions.deleteAccount(this.state.email, this.state.password)}>Delete Account</Button>

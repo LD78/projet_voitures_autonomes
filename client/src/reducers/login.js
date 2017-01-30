@@ -3,8 +3,7 @@ import axios from 'axios';
 import {browserHistory} from 'react-router';
 
 const initialState = {
-  email: '',
-	password: '',
+  username:"default Username",
 	authenticated: false
 };
 
@@ -12,12 +11,15 @@ export default function login(state = initialState, action) {
 	switch (action.type) {
 
 		case types.LOGIN: {
-
+      alert("REDUCER --> LOGIN")
       axios.get('http://localhost:5000/api/users')
         .then(function (response) {
           response.data.data.forEach(function(element) {
+            console.log(element.attributes.email);
             if(element.attributes.email == action.email && element.attributes.password == action.password){
-              alert("You are connected !!! ")
+              alert("You are connected !!! ");
+              state.username = element.attributes.username;
+              alert(state.username);
             }
           })
         })

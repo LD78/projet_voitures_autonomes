@@ -22,6 +22,7 @@ export default class AppMenu extends Component {
   render() {
     const {activeItem} = this.state;
     let logMenu = null;
+    let logMenuCar = null;
     console.log(this.props);
     //if (this.props.login.authenticated) {
       logMenu = <Menu.Item
@@ -30,6 +31,14 @@ export default class AppMenu extends Component {
         to="profile"
         active={activeItem === 'profile'}
         onClick={this.handleItemClick}
+      />
+
+      logMenuCar = <Menu.Item
+          name='car'
+          as={Link}
+          to="car"
+          active={activeItem === 'car'}
+          onClick={this.handleItemClick}
       />
 
     //}
@@ -50,14 +59,9 @@ export default class AppMenu extends Component {
           active={activeItem === 'login'}
           onClick={this.handleItemClick}
         />
-          <Menu.Item
-              name='car'
-              as={Link}
-              to="car"
-              active={activeItem === 'car'}
-              onClick={this.handleItemClick}
-          />
+
         {logMenu}
+        {logMenuCar}
       </Menu>
     )
   }

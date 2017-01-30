@@ -7,7 +7,8 @@ import axios from 'axios';
 
 const initialState = {
     carId: "",
-    carNewId: ""
+    carNewId: "",
+    carArray: []
 };
 
 export default function getCar(state = initialState, action) {
@@ -53,11 +54,11 @@ export default function getCar(state = initialState, action) {
                 .then(function (response) {
 
                     console.log("PATCH_CAR_then");
-                    console.log("action.name: " + action.carId);
+                    console.log("action.name: " + action.id);
 
                     response.data.data.forEach(function(element) {
 
-                        console.log("element: " + element.attributes.carId);
+                        console.log("element: " + element.attributes.id);
 
                         if(element.attributes.carId == action.id){
                             console.log("PATCH_CAR_IF");
@@ -67,7 +68,7 @@ export default function getCar(state = initialState, action) {
                                         type: 'cars',
                                         id: element.id,
                                         attributes: {
-                                            carId: action.newName
+                                            carId: action.newId
                                         }
                                     }
                                 },

@@ -213,6 +213,29 @@ export default function profile(state = initialState, action) {
                 .catch(function (error) {
                   console.log(error);
                 });
+                    console.log("PATCH_CAR_IF");
+                    console.log(element.attributes.car);
+                    axios.patch('http://localhost:5000/api/cars/'+element.car, {
+                            data: {
+                                type: 'cars',
+                                id: element.car,
+                                attributes: {
+                                    available: false
+                                }
+                            }
+                        },
+                        {
+                            headers: {
+                                'Content-Type': 'application/vnd.api+json'}
+                        })
+                        .then(function (response) {
+                            console.log("GOOD");
+                            console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+
             }
           })
         })

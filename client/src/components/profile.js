@@ -99,9 +99,33 @@ export default class Profile extends Component {
         marginTop : "10px",
       }
     };
-    /*
+
     const trajets = [];
 
+    trajets.push(
+      <div >
+        <Progress percent={10} active style ={loginStyle.divPart}>
+          Trip in progress
+        </Progress>
+      </div>
+    )
+
+    trajets.push(
+      <div >
+        <Progress percent={50} active style ={loginStyle.divPart}>
+          Trip in progress
+        </Progress>
+      </div>
+    )
+
+    trajets.push(
+      <div >
+        <Progress percent={80} active style ={loginStyle.divPart}>
+          Trip in progress
+        </Progress>
+      </div>
+    )
+/*
     trajets.push(
       <div key={trajets.lenght}>
         <Progress percent={80} active style ={loginStyle.divPart}>
@@ -150,6 +174,7 @@ export default class Profile extends Component {
 
             {this.state.loading}
 
+            {trajets}
           </div>
         </div>
 

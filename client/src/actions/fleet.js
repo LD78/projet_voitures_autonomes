@@ -30,3 +30,13 @@ export function deleteFleet(name) {
     name
   };
 }
+
+export function addCarInFleet(carId, fleetName) {
+    alert("ACTION --> ADD_CAR_IN_FLEET: " + carId);
+    alert("ACTION --> ADD_CAR_IN_FLEET: " + fleetName);
+    return {
+        type: typesFleet.ADD_CAR_IN_FLEET,
+        carId,
+        fleetName
+    };
+}

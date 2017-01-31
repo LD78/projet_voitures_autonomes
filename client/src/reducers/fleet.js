@@ -7,7 +7,8 @@ import axios from 'axios';
 
 const initialState = {
   fleetName: "",
-  fleetNewName: ""
+  fleetNewName: "",
+  carId: ""
 };
 
 export default function getCar(state = initialState, action) {
@@ -106,6 +107,52 @@ export default function getCar(state = initialState, action) {
       return {
         ...state
       };
+
+      case types.ADD_CAR_IN_FLEET:
+          //state.carArray.push('*' + action.id + '*');
+          alert("REDUCER --> ADD_CAR_IN_FLEET: " + action.carId);
+          alert("REDUCER --> ADD_CAR_IN_FLEET: " + action.fleetName);
+          axios.post('http://localhost:5000/api/cars', {
+                  data: {
+                      type: 'cars',
+                      attributes: {
+                          carId: action.carId,
+                          fleetName: action.fleetName
+                      }
+                  }
+              },
+              {
+                  headers: {
+                      'Content-Type': 'application/vnd.api+json'}
+              })
+              .then(function (response) {
+                  console.log(response);
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
+          axios.post('http://localhost:5000/api/fleets', {
+                  data: {
+                      type: 'fleets',
+                      attributes: {
+                          fleetName: action.fleetName
+                      }
+                  }
+              },
+              {
+                  headers: {
+                      'Content-Type': 'application/vnd.api+json'}
+              })
+              .then(function (response) {
+                  console.log(response);
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
+
+          return {
+              ...state
+          };
 
     default:
       return state;

@@ -20,6 +20,7 @@ export default class Profile extends Component {
     this.state = {
       fleetName: "",
       fleetNewName: "",
+      carId: ""
     };
   }
 
@@ -87,11 +88,11 @@ export default class Profile extends Component {
           </div>
 
           <div style ={loginStyle.divPart}>
-            <Button color='green' type="submit" onClick={() => alert("added !")}>Add Car In Fleet</Button>
+            <Button color='green' type="submit" onClick={() => actions.addCarInFleet(this.state.carId, this.state.fleetName)}>Add Car In Fleet</Button>
 
             <Form.Field>
-              <Input type="carFleet" name="carFleet" placeholder="Car Name" onChange={this.handleChange.bind(this)}/>
-              <Input type="fleetCar" name="fleetCar" placeholder="Fleet Name" onChange={this.handleChange.bind(this)}/>
+              <Input type="carFleet" name="carId" placeholder="Car Name" onChange={this.handleChange.bind(this)}/>
+              <Input type="fleetCar" name="fleetName" placeholder="Fleet Name" onChange={this.handleChange.bind(this)}/>
             </Form.Field>
           </div>
 

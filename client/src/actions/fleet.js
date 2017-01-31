@@ -1,9 +1,8 @@
 import * as typesFleet from '../constants/fleet';
 
-export function getFleet(id) {
+export function getFleet() {
   return {
-    type: typesFleet.GET_FLEETS,
-    id
+    type: typesFleet.GET_FLEETS
   };
 }
 

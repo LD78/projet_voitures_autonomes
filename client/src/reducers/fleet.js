@@ -15,11 +15,25 @@ export default function getCar(state = initialState, action) {
   switch (action.type) {
 
     case types.GET_FLEETS:
-      console.log('GET_CARS');
+      console.log('GET_FLEETS');
+        alert("REDUCER --> GET_FLEETS");
 
-      return {
-        ...state
-      };
+        axios.get('http://localhost:5000/api/fleets')
+            .then(function (response) {
+
+                response.data.data.forEach(function(element) {
+                    console.log(element.attributes.fleetName);
+                    alert(element.attributes.fleetName);
+                })
+
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        return {
+            ...state
+        };
 
     case types.ADD_FLEET:
       //state.carArray.push('*' + action.id + '*');

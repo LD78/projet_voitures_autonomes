@@ -11,7 +11,7 @@ export default function login(state = initialState, action) {
 	switch (action.type) {
 
 		case types.LOGIN: {
-      alert("REDUCER --> LOGIN")
+
       axios.get('http://localhost:5000/api/users')
         .then(function (response) {
           response.data.data.forEach(function(element) {

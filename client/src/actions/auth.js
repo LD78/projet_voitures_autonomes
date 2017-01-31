@@ -1,35 +1,7 @@
-import {push} from 'react-router-redux';
+
 import * as api from './api';
 import * as C from '../constants/user';
-//import CONFIG from '../../../config/default.json';
-/*
-function loginRequets() {
-  return {
-    type: C.LOGIN_REQUEST
-  }
-}*/
-/*
-export function loginUser(creds) {
-  return dispatch => {
-    dispatch(loginRequets());
-    return api.login(creds)
-      .then(res => {
-        localStorage.token = res.data.accessToken;
-        dispatch({
-          type: C.LOGIN_ACCEPTED,
-          payload: res.data
-        });
-        dispatch(push(CONFIG['redirectRouteAfterLogin']));
-      })
-      .catch(() => {
-        dispatch({
-          type: C.LOGIN_REJECTED,
-          payload: 'Wrong credentials'
-        });
-      });
-  }
-}
-*/
+
 export function checkAuth() {
   console.log("CHECK_AUTH");
   return dispatch => {
@@ -59,11 +31,3 @@ export function checkAuth() {
       });
   }
 }
-/*
-export function logout() {
-  return dispatch => {
-    delete localStorage.token;
-    dispatch({type: C.LOGOUT});
-    dispatch(push(CONFIG['redirectRouteAfterLogout']));
-  }
-}*/

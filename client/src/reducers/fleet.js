@@ -16,7 +16,6 @@ export default function getCar(state = initialState, action) {
 
     case types.GET_FLEETS:
       console.log('GET_FLEETS');
-        alert("REDUCER --> GET_FLEETS");
 
         axios.get('http://localhost:5000/api/fleets')
             .then(function (response) {
@@ -36,8 +35,6 @@ export default function getCar(state = initialState, action) {
         };
 
     case types.ADD_FLEET:
-      //state.carArray.push('*' + action.id + '*');
-      alert("REDUCER --> ADD_FLEET: " + action.name);
       axios.post('http://localhost:5000/api/fleets', {
           data: {
             type: 'fleets',
@@ -85,7 +82,6 @@ export default function getCar(state = initialState, action) {
       };
 
     case types.PATCH_FLEET:
-      alert("REDUCER --> PATCH_FLEET");
       axios.get('http://localhost:5000/api/fleets')
         .then(function (response) {
 
@@ -123,9 +119,6 @@ export default function getCar(state = initialState, action) {
       };
 
       case types.ADD_CAR_IN_FLEET:
-          //state.carArray.push('*' + action.id + '*');
-          alert("REDUCER --> ADD_CAR_IN_FLEET: " + action.carId);
-          alert("REDUCER --> ADD_CAR_IN_FLEET: " + action.fleetName);
           axios.post('http://localhost:5000/api/cars', {
                   data: {
                       type: 'cars',

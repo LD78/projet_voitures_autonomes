@@ -48,8 +48,6 @@ export default function getCar(state = initialState, action) {
             };
 
         case types.PATCH_CAR:
-            alert("REDUCER --> PATCH_CAR");
-            console.log("PATCH_CAR_________");
             axios.get('http://localhost:5000/api/cars')
                 .then(function (response) {
 
@@ -94,14 +92,12 @@ export default function getCar(state = initialState, action) {
             };
 
         case types.DELETE_CAR:
-            alert("REDUCERS ---> DELETE_CAR");
             axios.get('http://localhost:5000/api/cars')
                 .then(function (response) {
-                    alert("REDUCERS ---> DELETE_CAR, reponse");
                     response.data.data.forEach(function(element) {
 
                         if(element.attributes.carId == action.id){
-                            alert("REDUCERS ---> DELETE_CA if");
+
                             console.log(element.attributes.id);
                             axios.delete('http://localhost:5000/api/cars/'+element.id)
                                 .then(function (response) {

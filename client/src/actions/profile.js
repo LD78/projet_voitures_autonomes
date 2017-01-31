@@ -16,7 +16,6 @@ export function addCar(id) {
 }
 
 export function patchCar(name, newName) {
-    alert("ACTION --> PATCH_CAR: " + name);
     return {
         type: types.PATCH_CAR,
         name,
@@ -32,7 +31,6 @@ export function addFleet(name) {
 }
 
 export function patchFleet(name, newName) {
-  alert("ACTION --> PATCH_FLEET");
     return {
         type: types.PATCH_FLEET,
 		name,

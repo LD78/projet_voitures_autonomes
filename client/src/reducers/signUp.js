@@ -12,7 +12,6 @@ export default function login(state = initialState, action) {
 	switch (action.type) {
 
 		case types.SIGNUP:
-			alert('REDUCER --> SIGNUP');
       axios.post('http://localhost:5000/api/users', {
           data: {
             type: 'users',

@@ -10,6 +10,10 @@ const initialState = {
 	numFleet: 0,
 	carArray: [],
   tripArray: [],
+  tripIsLoading: false,
+  trip1: 0,
+  trip2: 0,
+  trip3: 0,
 	fleetArray: ['FirstFleet'],
 	testDeOuf: false
 };
@@ -44,8 +48,7 @@ export default function profile(state = initialState, action) {
 			};
 
         case types.PATCH_CAR:
-            alert("REDUCER --> PATCH_CAR");
-            console.log("PATCH_CAR_________");
+
             axios.get('http://localhost:5000/api/cars')
                 .then(function (response) {
 
@@ -116,8 +119,7 @@ export default function profile(state = initialState, action) {
 			};
 
         case types.PATCH_FLEET:
-          alert("REDUCER --> PATCH_FLEET");
-          console.log("PATCH_FLEET_________");
+
             axios.get('http://localhost:5000/api/fleets')
                 .then(function (response) {
 
@@ -209,6 +211,8 @@ export default function profile(state = initialState, action) {
                 .then(function (response) {
                   console.log(response);
                   state.tripArray.push('*' + action.destination + action.car + '*');
+                  state.tripIsLoading = true;
+
                 })
                 .catch(function (error) {
                   console.log(error);
@@ -246,8 +250,6 @@ export default function profile(state = initialState, action) {
       return {
         ...state
       };
-
-
 
 		default:
 			return state;

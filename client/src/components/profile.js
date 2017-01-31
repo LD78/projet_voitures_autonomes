@@ -144,7 +144,7 @@ export default class Profile extends Component {
 
             {this.props.profile.tripArray}
 
-            <Progress percent={80} active style = {loginStyle.divPart}>
+            <Progress percent={this.state.loading} active style = {loginStyle.divPart}>
               Trip in progress
             </Progress>
 

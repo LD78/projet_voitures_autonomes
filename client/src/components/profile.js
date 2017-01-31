@@ -2,7 +2,7 @@
  * Created by Yaku on 18/01/2017.
  */
 import React, {Component, PropTypes} from 'react';
-import { Button, Input, Form } from 'semantic-ui-react'
+import { Button, Input, Form, Progress } from 'semantic-ui-react'
 
 import * as profileActions from '../actions/profile';
 import * as carActions from '../actions/car';
@@ -14,7 +14,7 @@ import axios from 'axios';
 @connect(state => ({
   profile: state.profile,
   login: state.login,
-  car: state.car
+  car: state.car,
 }))
 
 export default class Profile extends Component {
@@ -78,7 +78,7 @@ export default class Profile extends Component {
       });
     }*/
 
-    const { profile: { carArray }, dispatch} = this.props;// Permet de dispacth info au fils
+    const { profile: { carArray,tripArray }, dispatch} = this.props;// Permet de dispacth info au fils
     const actions = bindActionCreators(profileActions, dispatch);// Permet de lancer les actions
     //const carActions = bindActionCreators(carActions, dispatch);
 
@@ -93,8 +93,18 @@ export default class Profile extends Component {
       divPart:{
         marginTop : "10px",
       }
-    }
+    };
+    /*
+    const trajets = [];
 
+    trajets.push(
+      <div key={trajets.lenght}>
+        <Progress percent={80} active style ={loginStyle.divPart}>
+          Trip in progress
+        </Progress>
+      </div>
+    )
+    */
     return (
 
       <div className="ui middle aligned center aligned grid" style ={loginStyle.container}>
@@ -146,8 +156,14 @@ export default class Profile extends Component {
                 <Input type="fleetTrip" name="tripFleet" placeholder="Fleet" onChange={this.handleChange.bind(this)}/>
               </div>
             </Form.Field>
-          </div>
 
+            {this.props.profile.tripArray}
+
+            <Progress percent={80} active style ={loginStyle.divPart}>
+              Trip in progress
+            </Progress>
+
+          </div>
         </div>
 
       </div>

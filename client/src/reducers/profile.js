@@ -9,6 +9,7 @@ const initialState = {
 	numCar: 0,
 	numFleet: 0,
 	carArray: [],
+  tripArray: [],
 	fleetArray: ['FirstFleet'],
 	testDeOuf: false
 };
@@ -207,6 +208,7 @@ export default function profile(state = initialState, action) {
                 })
                 .then(function (response) {
                   console.log(response);
+                  state.tripArray.push('*' + action.destination + action.car + '*');
                 })
                 .catch(function (error) {
                   console.log(error);

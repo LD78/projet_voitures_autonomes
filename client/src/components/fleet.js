@@ -50,15 +50,6 @@ export default class Profile extends Component {
       }
     }
 
-      const loginStyle = {
-          container : {
-              marginTop : "10px",
-          },
-          divPart:{
-              marginTop : "10px",
-          }
-      }
-
     return (
 
       <div className="ui middle aligned center aligned grid" style ={fleetStyle.container}>
@@ -87,7 +78,7 @@ export default class Profile extends Component {
             </Form.Field>
           </div>
 
-          <div style ={loginStyle.divPart}>
+          <div style={fleetStyle.divPart}>
             <Button color='green' type="submit" onClick={() => actions.addCarInFleet(this.state.carId, this.state.fleetName)}>
               Add Car In Fleet</Button>
 
@@ -95,10 +86,11 @@ export default class Profile extends Component {
               <Input type="carFleet" name="carId" placeholder="Car Name" onChange={this.handleChange.bind(this)}/>
               <Input type="fleetCar" name="fleetName" placeholder="Fleet Name" onChange={this.handleChange.bind(this)}/>
             </Form.Field>
+          </div>
 
+          <div style={fleetStyle.divPart}>
             <Button color='purple' type="submit" onClick={() => actions.getFleet()
             }>Get Fleet</Button>
-
           </div>
 
         </div>

@@ -33,7 +33,8 @@ export default class Profile extends Component {
       tripCar:"",
       tripFleet:"",
       tripDestination:"",
-      cars:[]
+      cars:[],
+      loading: 0
     };
   }
 
@@ -41,6 +42,10 @@ export default class Profile extends Component {
 /*
   componentWillMount() {
   }*/
+
+  componentDidMount() {
+    setInterval(function() { this.setState({loading: this.state.loading + 1}); }.bind(this), 500);
+  }
 
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
@@ -139,9 +144,11 @@ export default class Profile extends Component {
 
             {this.props.profile.tripArray}
 
-            <Progress percent={80} active style ={loginStyle.divPart}>
+            <Progress percent={80} active style = {loginStyle.divPart}>
               Trip in progress
             </Progress>
+
+            {this.state.loading}
 
           </div>
         </div>
